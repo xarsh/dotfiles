@@ -1,0 +1,17 @@
+# Editor generated
+*~
+*.sublime-project
+*.sublime-workspace
+*.swp
+
+# Binaries
+*.so
+*.class
+*.o
+*.jar
+
+# Misc
+*.log
+
+# Mac OS
+.DS_Store

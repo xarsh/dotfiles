@@ -1,0 +1,15 @@
+[help]
+	autocorrect = 1
+[core]
+	quotepath = false
+	excludesfile = ~/.gitignore_global
+        whitespace = cr-at-eol
+[push]
+	default = simple
+[user]
+	email = xarsh@outlook.com
+	name = Takao NAITO
+[color]
+	diff = auto
+	status = auto
+	branch = auto
