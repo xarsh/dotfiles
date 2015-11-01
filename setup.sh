@@ -7,7 +7,7 @@ setup() {
     dotfiles=$HOME/.dotfiles
 
     symlink() {
-        [ -e "$2" ] || ln -s "$1" "$2"
+        [ -e "$2" ] || ln -sf "$1" "$2"
     }
 
     if [ -d "$dotfiles" ]; then

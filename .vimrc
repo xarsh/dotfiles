@@ -22,8 +22,6 @@ augroup END
 
 " Use the Solarized Light theme
 set background=light
-colorscheme solarized
-let g:solarized_termtrans=1
 
 " Use the OS clipboard by default (on versions compiled with `+clipboard`)
 set clipboard=unnamed

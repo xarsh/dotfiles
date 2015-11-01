@@ -1,7 +1,3 @@
-" Use the Solarized Light theme
-set background=light
-colorscheme solarized
-
 " Use 12pt Hack
 set guifont=Hack:h12
 
@@ -9,4 +5,4 @@ set guifont=Hack:h12
 set guicursor=n:blinkon0
 
 " Better line-height
-set linespace=8
+set linespace=1
