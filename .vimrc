@@ -1,8 +1,4 @@
-" Initialize all settings
-"set all&
-" Initialize autocmd
-"autocmd!
-" auto reload .vimrc
+" Auto reload .vimrc
 augroup source-vimrc
   autocmd!
   autocmd BufWritePost *vimrc source $MYVIMRC | set foldmethod=marker
@@ -41,11 +37,13 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Plugins
 "******************
 " Color schemes
-NeoBundle 'jonathanfilip/vim-lucius'
+NeoBundle 'ywjno/vim-tomorrow-theme'
+NeoBundle 'vim-scripts/pyte'
 
 " Interface
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'airblade/vim-gitgutter'
+NeoBundle 'scrooloose/nerdtree'
 
 " Languages
 NeoBundle 'itchyny/vim-haskell-indent'
@@ -60,7 +58,14 @@ NeoBundleCheck
 
 
 "******************
-" Basic setup
+" UI
+"******************
+" Color scheme
+colorscheme Tomorrow
+
+
+"******************
+" Editor config
 "******************
 " Encoding
 set encoding=utf-8
@@ -80,6 +85,9 @@ syntax enable
 " Swap colon and semi-colon
 noremap ; :
 noremap : ;
+
+" Toggle filetree
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
 " Move cursor by display lines
 nnoremap j gj
@@ -128,8 +136,3 @@ set laststatus=2
 imap { {}<LEFT>
 imap [ []<LEFT>
 imap ( ()<LEFT>
-
-" Color scheme
-set t_Co=256
-colorscheme lazorevo
-
