@@ -1,7 +1,7 @@
 #!/bin/sh
 
-set -e
-set -u
+set -e # Stop script when error occurs
+set -u # Stop script when using undefined variable
 
 setup() {
     dotfiles=$HOME/.dotfiles
@@ -17,8 +17,14 @@ setup() {
     fi
 
     symlink "$dotfiles/.gitconfig" "$HOME/.gitconfig"
+    symlink "$dotfiles/.gitignore_global" "$HOME/.gitignore_global"
     symlink "$dotfiles/.zshrc" "$HOME/.zshrc"
     symlink "$dotfiles/.vimrc" "$HOME/.vimrc"
+    symlink "$dotfiles/.gvimrc" "$HOME/.gvimrc"
+    symlink "$dotfiles/.alias" "$HOME/.alias"
+    symlink "$dotfiles/.functions" "$HOME/.functions"
+
+	source ~/.zshrc;
 }
 
 setup

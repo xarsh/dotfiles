@@ -5,13 +5,14 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 
 # Shortcuts
-alias a="atom -n"
+alias d="cd ~/Documents"
 alias h="history"
 alias o="open"
-alias d="cd ~/Documents"
+alias v="mvim"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias gf="git pull --rebase origin master"
+alias ls="gls --color=auto"
 
 # Ruby and Rails shortcuts
 alias bi="bundle install --path vendor/bundle"

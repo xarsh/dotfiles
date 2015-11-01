@@ -1,0 +1,4 @@
+export ZSH=/Users/xarsh/.oh-my-zsh
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH="$HOME/.rbenv/bin:$PATH"
+
