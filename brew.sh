@@ -8,6 +8,7 @@ brew upgrade
 brew install docker-machine
 brew install gcc
 brew install ghc
+brew install coreurils
 brew install macvim
 brew install node
 brew install npm
@@ -23,6 +24,8 @@ brew install rmtrash
 brew install ruby-build
 brew install wget
 brew install zsh
+
+brew install caskroom/cask/brew-cask
 
 brew cask install chromium
 brew cask install filezilla

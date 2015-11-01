@@ -1,18 +1,7 @@
-" init all settings
-set all&
-
-" init autocmd
-autocmd!
-
-" set script encoding
-scriptencoding utf-8
-
-" tiny と small では これ以上 vimrc を読み込まない
-if !1 | finish | endif
-
-" syntax hilight
-syntax enable
-
+" Initialize all settings
+"set all&
+" Initialize autocmd
+"autocmd!
 " auto reload .vimrc
 augroup source-vimrc
   autocmd!
@@ -20,131 +9,127 @@ augroup source-vimrc
   autocmd BufWritePost *gvimrc if has('gui_running') source $MYGVIMRC
 augroup END
 
-" Use the Solarized Light theme
-set background=light
 
-" Use the OS clipboard by default (on versions compiled with `+clipboard`)
-set clipboard=unnamed
+"******************
+"" NeoBundle core
+"******************
+if has('vim_starting')
+  set nocompatible
 
-" Enhance command-line completion
-set wildmenu
+  " Required:
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-" Allow cursor keys in insert mode
-set esckeys
+let neobundle_readme=expand('~/.vim/bundle/neobundle.vim/README.md')
 
-" Allow backspace in insert mode
-set backspace=indent,eol,start
+if !filereadable(neobundle_readme)
+  echo "Installing NeoBundle..."
+  echo ""
+  silent !mkdir -p ~/.vim/bundle
+  silent !git clone --depth 1 https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim/
+endif
 
-" Optimize for fast terminal connections
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+
+"******************
+" Plugins
+"******************
+" Color schemes
+NeoBundle 'jonathanfilip/vim-lucius'
+
+" Interface
+NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'airblade/vim-gitgutter'
+
+" Languages
+NeoBundle 'itchyny/vim-haskell-indent'
+
+call neobundle#end()
+
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+
+
+"******************
+" Basic setup
+"******************
+" Encoding
+set encoding=utf-8
+scriptencoding utf-8
+set bomb
+set binary
 set ttyfast
 
-" Add the g flag to search/replace by default
-set gdefault
-
-" Use UTF-8 without BOM
-set encoding=utf-8 nobomb
-
-" Change mapleader
-let mapleader=","
-
-" Don’t add empty newlines at the end of files
-set binary
-set noeol
-
-" Centralize backups, swapfiles and undo history
-set backupdir=~/.vim/backups
-set directory=~/.vim/swaps
-if exists("&undodir")
-	set undodir=~/.vim/undo
-endif
-
-" Don’t create backups when editing files in certain directories
-set backupskip=/tmp/*,/private/tmp/*
-
-" Respect modeline in files
-set modeline
-set modelines=4
-
-" Enable per-directory .vimrc files and disable unsafe commands in them
-set exrc
-set secure
-
-" Enable line numbers
+" Show linenumbers and cursor position
 set number
-
-" Highlight current line
-set cursorline
-
-" Make tabs as wide as two spaces
-set tabstop=2
-
-" Show “invisible” characters
-set lcs=tab:▸\ ,trail:·,eol:¬,nbsp:_
-set list
-
-" Highlight searches
-set hlsearch
-
-" Ignore case of searches
-set ignorecase
-
-" Highlight dynamically as pattern is typed
-set incsearch
-
-" Always show status line
-set laststatus=2
-
-" Enable mouse in all modes
-set mouse=a
-
-" Disable error bells
-set noerrorbells
-
-" Don’t reset cursor to start of line when moving around.
-set nostartofline
-
-" Show the cursor position
+set numberwidth=4
 set ruler
 
-" Don’t show the intro message when starting Vim
-set shortmess=atI
+" Enable syntax highlighting
+syntax enable
 
-" Show the current mode
-set showmode
+" Swap colon and semi-colon
+noremap ; :
+noremap : ;
 
-" Show the filename in the window titlebar
-set title
+" Move cursor by display lines
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
 
-" Show the (partial) command as it’s being typed
-set showcmd
+" ^ and $ is too far to type
+noremap <Space>h  ^
+noremap <Space>l  $
 
-" Use relative line numbers
-if exists("&relativenumber")
-	set relativenumber
-	au BufReadPost * set relativenumber
-endif
+" Tab, space and indent
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 
-" Start scrolling three lines before the horizontal window border
-set scrolloff=3
+" Search setting
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+noremap <Esc><Esc> :nohlsearch<CR><Esc>
 
-" Strip trailing whitespace (,ss)
-function! StripWhitespace()
-	let save_cursor = getpos(".")
-	let old_query = getreg('/')
-	:%s/\s\+$//e
-	call setpos('.', save_cursor)
-	call setreg('/', old_query)
-endfunction
-noremap <leader>ss :call StripWhitespace()<CR>
-" Save a file as root (,W)
-noremap <leader>W :w !sudo tee % > /dev/null<CR>
+" Use clipboard for yank
+set clipboard=unnamed,autoselect
 
-" Automatic commands
-if has("autocmd")
-	" Enable file type detection
-	filetype on
-	" Treat .json files as .js
-	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
-	" Treat .md files as Markdown
-	autocmd BufNewFile,BufRead *.md setlocal filetype=markdown
-endif
+" Fix backspace indent
+set backspace=indent,eol,start
+
+" Stop beeping
+set visualbell t_vb=
+set noerrorbells
+
+" Prevent generating swp and backup files
+set nobackup
+set noswapfile
+
+" Show current cursor line
+set cursorline
+
+" Status bar
+set laststatus=2
+
+" Automatically append closing characters
+imap { {}<LEFT>
+imap [ []<LEFT>
+imap ( ()<LEFT>
+
+" Color scheme
+set t_Co=256
+colorscheme lazorevo
+

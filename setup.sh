@@ -7,13 +7,13 @@ setup() {
     dotfiles=$HOME/.dotfiles
 
     symlink() {
-        [ -e "$2" ] || ln -sf "$1" "$2"
+        ln -sf "$1" "$2"
     }
 
     if [ -d "$dotfiles" ]; then
         (cd "$dotfiles" && git pull --rebase)
     else
-       git clone https://github.com/xarsh/dotfiles "$dotfiles"
+       git clone https://github.com/xarsh/dotfiles --quiet "$dotfiles"
     fi
 
     symlink "$dotfiles/.gitconfig" "$HOME/.gitconfig"
@@ -24,7 +24,14 @@ setup() {
     symlink "$dotfiles/.alias" "$HOME/.alias"
     symlink "$dotfiles/.functions" "$HOME/.functions"
 
+    symlink "$dotfiles/files/private.xml" "$HOME/Library/Application Support/Karabiner/private.xml"
+    symlink "$dotfiles/files/.vim/colors" "$HOME/.vim/colors"
+}
+
+apply() {
     source ~/.zshrc;
+    /Applications/Karabiner.app/Contents/Library/bin/karabiner reloadxml
 }
 
 setup
+apply
