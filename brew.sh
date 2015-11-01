@@ -24,6 +24,7 @@ brew install rmtrash
 brew install ruby-build
 brew install wget
 brew install zsh
+brew install zsh-syntax-highlighting
 
 brew install caskroom/cask/brew-cask
 
