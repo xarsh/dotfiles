@@ -45,8 +45,13 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'scrooloose/nerdtree'
 
+" Editor
+NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'tomtom/tcomment_vim'
+
 " Languages
 NeoBundle 'itchyny/vim-haskell-indent'
+NeoBundle 'tpope/vim-endwise'
 
 call neobundle#end()
 
@@ -81,23 +86,6 @@ set ruler
 
 " Enable syntax highlighting
 syntax enable
-
-" Swap colon and semi-colon
-noremap ; :
-noremap : ;
-
-" Toggle filetree
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
-
-" Move cursor by display lines
-nnoremap j gj
-nnoremap k gk
-nnoremap gj j
-nnoremap gk k
-
-" ^ and $ is too far to type
-noremap <Space>h  ^
-noremap <Space>l  $
 
 " Tab, space and indent
 set expandtab
@@ -136,3 +124,29 @@ set laststatus=2
 imap { {}<LEFT>
 imap [ []<LEFT>
 imap ( ()<LEFT>
+
+
+"******************
+" Editor config
+"******************
+" Change tabs
+nnoremap <C-n> gt
+nnoremap <C-p> gT
+
+" Swap colon and semi-colon
+noremap ; :
+noremap : ;
+
+" Toggle filetree
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
+
+" Move cursor by display lines
+nnoremap j gj
+nnoremap k gk
+nnoremap gj j
+nnoremap gk k
+
+" ^ and $ is too far to type
+noremap <Space>h  ^
+noremap <Space>l  $
+
