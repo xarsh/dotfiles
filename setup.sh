@@ -24,7 +24,7 @@ setup() {
     symlink "$dotfiles/.alias" "$HOME/.alias"
     symlink "$dotfiles/.functions" "$HOME/.functions"
 
-	source ~/.zshrc;
+    source ~/.zshrc;
 }
 
 setup
