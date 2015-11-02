@@ -8,7 +8,7 @@ brew upgrade
 brew install docker-machine
 brew install gcc
 brew install ghc
-brew install coreurils
+brew install coreutils
 brew install macvim --with-lua
 brew install node
 brew install npm

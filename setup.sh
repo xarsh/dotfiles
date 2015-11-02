@@ -14,7 +14,7 @@ setup() {
 }
 
 osx() {
-  read -p "Configure OSX system settings?" -n 1 -r
+  read -p "Configure OSX system settings? (y/n) " -n 1 -r
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
     "$dotfiles/osx.sh"
@@ -22,7 +22,7 @@ osx() {
 }
 
 brew() {
-  read -p "Install Applications with brew?" -n 1 -r
+  read -p "Install Applications with brew? (y/n) " -n 1 -r
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
     "$dotfiles/brew.sh"
@@ -52,5 +52,5 @@ apply() {
 setup
 brew
 osx
-simlinks
+symlinks
 apply
