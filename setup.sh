@@ -14,7 +14,6 @@ setup() {
 }
 
 osx() {
-  read -p "Configure OSX system settings? (y/n) " -n 1 -r
   if [[ $REPLY =~ ^[Yy]$ ]]
   then
     "$dotfiles/osx.sh"
@@ -22,31 +21,27 @@ osx() {
 }
 
 brew() {
-  read -p "Install Applications with brew? (y/n) " -n 1 -r
-  if [[ $REPLY =~ ^[Yy]$ ]]
-  then
-    "$dotfiles/brew.sh"
-  fi
+  "$dotfiles/brew.sh"
 }
 
 symlinks() {
-    symlink() {
-        ln -sf "$1" "$2"
-    }
-    symlink "$dotfiles/.gitconfig" "$HOME/.gitconfig"
-    symlink "$dotfiles/.gitignore_global" "$HOME/.gitignore_global"
-    symlink "$dotfiles/.zshrc" "$HOME/.zshrc"
-    symlink "$dotfiles/.vimrc" "$HOME/.vimrc"
-    symlink "$dotfiles/.gvimrc" "$HOME/.gvimrc"
-    symlink "$dotfiles/.alias" "$HOME/.alias"
-    symlink "$dotfiles/.functions" "$HOME/.functions"
+  symlink() {
+      ln -sf "$1" "$2"
+  }
+  symlink "$dotfiles/.gitconfig" "$HOME/.gitconfig"
+  symlink "$dotfiles/.gitignore_global" "$HOME/.gitignore_global"
+  symlink "$dotfiles/.zshrc" "$HOME/.zshrc"
+  symlink "$dotfiles/.vimrc" "$HOME/.vimrc"
+  symlink "$dotfiles/.gvimrc" "$HOME/.gvimrc"
+  symlink "$dotfiles/.alias" "$HOME/.alias"
+  symlink "$dotfiles/.functions" "$HOME/.functions"
 
-    symlink "$dotfiles/files/private.xml" "$HOME/Library/Application Support/Karabiner/private.xml"
+  symlink "$dotfiles/files/private.xml" "$HOME/Library/Application Support/Karabiner/private.xml"
 }
 
 apply() {
-    source ~/.zshrc;
-    /Applications/Karabiner.app/Contents/Library/bin/karabiner reloadxml
+  source ~/.zshrc;
+  /Applications/Karabiner.app/Contents/Library/bin/karabiner reloadxml
 }
 
 setup
@@ -54,3 +49,5 @@ brew
 osx
 symlinks
 apply
+
+echo "\nSuccess.\n"
