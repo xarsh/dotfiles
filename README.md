@@ -7,4 +7,4 @@ $ curl -sL dot.xar.sh | sh
 
 *Warning:* 
 This command overrides dotfiles that were already there.
-So you should run these files verbatim.
+So you should not run these files verbatim.
