@@ -9,7 +9,7 @@ brew install docker-machine
 brew install gcc
 brew install ghc
 brew install coreurils
-brew install macvim
+brew install macvim --with-lua
 brew install node
 brew install npm
 brew install openssl
@@ -24,13 +24,16 @@ brew install rmtrash
 brew install ruby-build
 brew install wget
 brew install zsh
+brew install zsh-history-substring-search
 brew install zsh-syntax-highlighting
+
 
 brew install caskroom/cask/brew-cask
 
 brew cask install chromium
 brew cask install filezilla
 brew cask install firefox
+brew cask install iterm2 
 brew cask install java
 brew cask install karabiner
 brew cask install libreoffice

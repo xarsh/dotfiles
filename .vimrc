@@ -53,6 +53,10 @@ NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'itchyny/vim-haskell-indent'
 NeoBundle 'tpope/vim-endwise'
 
+" Misc
+NeoBundle 'mattn/webapi-vim'
+NeoBundle 'mattn/vimplenote-vim'
+
 call neobundle#end()
 
 filetype plugin indent on

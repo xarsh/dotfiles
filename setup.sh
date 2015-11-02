@@ -3,19 +3,36 @@
 set -e # Stop script when error occurs
 set -u # Stop script when using undefined variable
 
+dotfiles=$HOME/.dotfiles
+
 setup() {
-    dotfiles=$HOME/.dotfiles
-
-    symlink() {
-        ln -sf "$1" "$2"
-    }
-
     if [ -d "$dotfiles" ]; then
         (cd "$dotfiles" && git pull --rebase)
     else
        git clone https://github.com/xarsh/dotfiles --quiet "$dotfiles"
     fi
+}
 
+osx() {
+  read -p "Configure OSX system settings?" -n 1 -r
+  if [[ $REPLY =~ ^[Yy]$ ]]
+  then
+    "$dotfiles/osx.sh"
+  fi
+}
+
+brew() {
+  read -p "Install Applications with brew?" -n 1 -r
+  if [[ $REPLY =~ ^[Yy]$ ]]
+  then
+    "$dotfiles/brew.sh"
+  fi
+}
+
+symlinks() {
+    symlink() {
+        ln -sf "$1" "$2"
+    }
     symlink "$dotfiles/.gitconfig" "$HOME/.gitconfig"
     symlink "$dotfiles/.gitignore_global" "$HOME/.gitignore_global"
     symlink "$dotfiles/.zshrc" "$HOME/.zshrc"
@@ -25,7 +42,6 @@ setup() {
     symlink "$dotfiles/.functions" "$HOME/.functions"
 
     symlink "$dotfiles/files/private.xml" "$HOME/Library/Application Support/Karabiner/private.xml"
-    symlink "$dotfiles/files/.vim/colors" "$HOME/.vim/colors"
 }
 
 apply() {
@@ -34,4 +50,7 @@ apply() {
 }
 
 setup
+brew
+osx
+simlinks
 apply
