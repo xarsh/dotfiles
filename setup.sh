@@ -14,14 +14,15 @@ setup() {
 }
 
 osx() {
-  if [[ $REPLY =~ ^[Yy]$ ]]
-  then
-    "$dotfiles/osx.sh"
-  fi
+  "$dotfiles/osx.sh"
 }
 
 brew() {
   "$dotfiles/brew.sh"
+}
+
+karabiner(){
+  "$dotfiles/karabiner-import.sh"
 }
 
 symlinks() {
@@ -33,9 +34,8 @@ symlinks() {
   symlink "$dotfiles/.zshrc" "$HOME/.zshrc"
   symlink "$dotfiles/.vimrc" "$HOME/.vimrc"
   symlink "$dotfiles/.gvimrc" "$HOME/.gvimrc"
-  symlink "$dotfiles/.alias" "$HOME/.alias"
+  symlink "$dotfiles/.aliases" "$HOME/.aliases"
   symlink "$dotfiles/.functions" "$HOME/.functions"
-
   symlink "$dotfiles/files/private.xml" "$HOME/Library/Application Support/Karabiner/private.xml"
 }
 
@@ -47,6 +47,7 @@ apply() {
 setup
 brew
 osx
+karabiner
 symlinks
 apply
 
