@@ -52,6 +52,7 @@ NeoBundle 'tomtom/tcomment_vim'
 " Languages
 NeoBundle 'itchyny/vim-haskell-indent'
 NeoBundle 'tpope/vim-endwise'
+NeoBundle 'wavded/vim-stylus'
 
 " Misc
 NeoBundle 'mattn/webapi-vim'

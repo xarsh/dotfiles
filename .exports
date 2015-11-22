@@ -3,4 +3,8 @@ export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="$HOME/.rbenv/bin:$PATH"
 export TERM=xterm-256color
 
+export DOCKER_TLS_VERIFY="1"
+export DOCKER_HOST="tcp://xarsh-docker-machine-base.cloudapp.net:2376"
+export DOCKER_CERT_PATH="/Users/xarsh/.docker/machine/machines/xarsh-docker-machine-base"
+export DOCKER_MACHINE_NAME="xarsh-docker-machine-base"
 
