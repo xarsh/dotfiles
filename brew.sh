@@ -7,11 +7,9 @@ brew upgrade
 
 brew install docker-machine
 brew install gcc
-brew install ghc
+brew install haskell-stack
 brew install coreutils
-brew install macvim --with-lua
 brew install node
-brew install npm
 brew install openssl
 brew install postgres
 brew install pwgen
@@ -30,8 +28,8 @@ brew install zsh-syntax-highlighting
 
 brew install caskroom/cask/brew-cask
 
-brew cask install chromium
-brew cask install filezilla
+brew cask install google-chrome
+brew cask install cyberduck
 brew cask install firefox
 brew cask install iterm2 
 brew cask install java
