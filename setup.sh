@@ -22,7 +22,7 @@ brew() {
 }
 
 karabiner() {
-  "$dotfiles/karabiner-import.sh"
+  "$dotfiles/karabiner.sh"
 }
 
 atom() {
