@@ -21,8 +21,12 @@ brew() {
   "$dotfiles/brew.sh"
 }
 
-karabiner(){
+karabiner() {
   "$dotfiles/karabiner-import.sh"
+}
+
+atom() {
+  apm stars --install
 }
 
 symlinks() {
@@ -48,6 +52,7 @@ setup
 brew
 osx
 karabiner
+atom
 symlinks
 apply
 

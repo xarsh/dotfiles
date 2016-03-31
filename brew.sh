@@ -5,10 +5,10 @@ brew doctor
 brew update
 brew upgrade
 
+brew install coreutils
 brew install docker-machine
 brew install gcc
 brew install haskell-stack
-brew install coreutils
 brew install node
 brew install openssl
 brew install postgres
@@ -28,10 +28,12 @@ brew install zsh-syntax-highlighting
 
 brew install caskroom/cask/brew-cask
 
-brew cask install google-chrome
+brew cask install atom
 brew cask install cyberduck
 brew cask install firefox
-brew cask install iterm2 
+brew cask install flash
+brew cask install google-chrome
+brew cask install iterm2
 brew cask install java
 brew cask install karabiner
 brew cask install libreoffice
@@ -40,4 +42,3 @@ brew cask install spectacle
 brew cask install the-unarchiver
 brew cask install transmission
 brew cask install vlc
-brew cask install flash
