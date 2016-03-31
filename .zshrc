@@ -15,5 +15,7 @@ source /usr/local/opt/zsh-history-substring-search/zsh-history-substring-search.
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-eval "$(rbenv init - zsh)"
+export EDITOR="atom"
 
+eval "$(rbenv init - zsh)"
+eval "$(direnv hook zsh)"

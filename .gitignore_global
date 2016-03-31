@@ -8,10 +8,12 @@
 *.so
 *.class
 *.o
-*.jar
 
 # Misc
 *.log
 
 # Mac OS
 .DS_Store
+
+# Credentials
+.envrc

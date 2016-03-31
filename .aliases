@@ -30,3 +30,8 @@ alias pg="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.lo
 
 # Use rmtrash not to delete stuff completely
 alias rm="rmtrash"
+
+# Docker commands
+alias da="docker ps -a"
+alias dl="docker ps --latest --quiet"
+alias drmi="docker rmi $(docker images | awk '/^<none>/ { print $3 }')"
