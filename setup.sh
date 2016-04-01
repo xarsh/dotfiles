@@ -44,7 +44,6 @@ symlinks() {
 }
 
 apply() {
-  source ~/.zshrc
   /Applications/Karabiner.app/Contents/Library/bin/karabiner reloadxml
 }
 
