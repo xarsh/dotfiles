@@ -6,6 +6,7 @@ brew update
 brew upgrade
 
 brew install coreutils
+brew install docker
 brew install docker-machine
 brew install gcc
 brew install haskell-stack
