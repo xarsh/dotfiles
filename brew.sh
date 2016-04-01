@@ -16,7 +16,6 @@ brew install pwgen
 brew install pxz
 brew install rbenv
 brew install rbenv-binstubs
-brew install rbenv-gem-rehash
 brew install readline
 brew install rmtrash
 brew install ruby-build
@@ -26,7 +25,7 @@ brew install zsh-history-substring-search
 brew install zsh-syntax-highlighting
 
 
-brew install caskroom/cask/brew-cask
+brew tap caskroom/cask
 
 brew cask install atom
 brew cask install cyberduck
