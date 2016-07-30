@@ -5,10 +5,10 @@ brew doctor
 brew update
 brew upgrade
 
+brew install awscli
+brew install aws-elasticbeanstalk
 brew install coreutils
 brew install direnv
-brew install docker
-brew install docker-machine
 brew install gcc
 brew install haskell-stack
 brew install node
