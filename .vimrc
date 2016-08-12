@@ -5,68 +5,6 @@ augroup source-vimrc
   autocmd BufWritePost *gvimrc if has('gui_running') source $MYGVIMRC
 augroup END
 
-
-"******************
-"" NeoBundle core
-"******************
-if has('vim_starting')
-  set nocompatible
-
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-
-let neobundle_readme=expand('~/.vim/bundle/neobundle.vim/README.md')
-
-if !filereadable(neobundle_readme)
-  echo "Installing NeoBundle..."
-  echo ""
-  silent !mkdir -p ~/.vim/bundle
-  silent !git clone --depth 1 https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim/
-endif
-
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-
-"******************
-" Plugins
-"******************
-" Color schemes
-NeoBundle 'ywjno/vim-tomorrow-theme'
-NeoBundle 'vim-scripts/pyte'
-
-" Interface
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'airblade/vim-gitgutter'
-NeoBundle 'scrooloose/nerdtree'
-
-" Editor
-NeoBundle 'terryma/vim-multiple-cursors'
-NeoBundle 'tomtom/tcomment_vim'
-
-" Languages
-NeoBundle 'itchyny/vim-haskell-indent'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'wavded/vim-stylus'
-
-" Misc
-NeoBundle 'mattn/webapi-vim'
-NeoBundle 'mattn/vimplenote-vim'
-
-call neobundle#end()
-
-filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-
-
 "******************
 " UI
 "******************
@@ -154,4 +92,3 @@ nnoremap gk k
 " ^ and $ is too far to type
 noremap <Space>h  ^
 noremap <Space>l  $
-

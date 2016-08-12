@@ -13,13 +13,24 @@ sudo scutil --set LocalHostName euphonium
 sudo scutil --set HostName euphonium
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "euphonium"
 
+# Set NTP server to NICT
+sudo systemsetup -setnetworktimeserver ntp.nict.jp
+
 # Set standby delay to 24 hours (default is 1 hour)
 sudo pmset -a standbydelay 86400
 
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=" "
 
-# Disable transparency in the menu bar and elsewhere on Yosemite
+# Automatically quit the printer app once the print jobs are completed
+defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
+
+# Enable `Tap to click`
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
+defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+# Disable transparency in the menu bar and elsewhere on Mac
 defaults write com.apple.universalaccess reduceTransparency -bool true
 
 # Stop creating .DS_Store file
@@ -30,6 +41,11 @@ defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
 # Show only working app icon on the Dock
 defaults write com.apple.dock static-only -boolean true
+killall Dock
+
+# Hide Dock automatically without any delay
+defaults write com.apple.dock autohide -bool true
+defaults write com.apple.Dock autohide-delay -float 0
 killall Dock
 
 # Expand save panel by default
@@ -72,6 +88,9 @@ defaults write com.apple.finder ShowPathbar -bool true
 
 # Disable the warning when changing a file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+# Always show the user Library folder
+chflags nohidden ~/Library/
 
 # Automatically open a new Finder window when a volume is mounted
 defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true

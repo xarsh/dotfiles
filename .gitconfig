@@ -4,6 +4,7 @@
 	quotepath = false
 	excludesfile = ~/.gitignore_global
         whitespace = cr-at-eol
+	editor = vim
 [push]
 	default = simple
 [user]
@@ -13,3 +14,5 @@
 	diff = auto
 	status = auto
 	branch = auto
+[url "git@github.com:"]
+	pushinsteadof = https://github.com/
