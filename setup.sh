@@ -23,11 +23,11 @@ before() {
 
 before
 
-"$dotfiles/shell.sh"
 "$dotfiles/brew.sh"
 "$dotfiles/osx.sh"
 "$dotfiles/languages.sh"
 "$dotfiles/atom.sh"
 "$dotfiles/karabiner.sh"
+"$dotfiles/shell.sh"
 
 echo "\nSuccess.\n"
