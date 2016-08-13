@@ -33,3 +33,9 @@ brew install rmtrash
 brew install wget
 brew install zsh
 brew install zplug
+
+open -a docker
+open -a karabiner
+open -a firefox
+open -a slack
+open -a spectacle

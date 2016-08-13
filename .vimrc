@@ -5,12 +5,6 @@ augroup source-vimrc
   autocmd BufWritePost *gvimrc if has('gui_running') source $MYGVIMRC
 augroup END
 
-"******************
-" UI
-"******************
-" Color scheme
-colorscheme Tomorrow
-
 
 "******************
 " Editor config
