@@ -19,7 +19,6 @@ before() {
   ln -sf "$dotfiles/.gvimrc" "$HOME/.gvimrc"
   ln -sf "$dotfiles/.aliases" "$HOME/.aliases"
   ln -sf "$dotfiles/.functions" "$HOME/.functions"
-  ln -sf "$dotfiles/files/private.xml" "$HOME/Library/Application Support/Karabiner/private.xml"
 }
 
 before

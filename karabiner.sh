@@ -12,4 +12,6 @@ $cli set private.app_terminal_esc_with_eisuu 1
 /bin/echo -n .
 /bin/echo
 
+ln -sf "$dotfiles/files/private.xml" "$HOME/Library/Application Support/Karabiner/private.xml"
+
 $cli reloadxml
