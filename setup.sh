@@ -23,7 +23,7 @@ before() {
 
 before
 
-"$dotfiles/brew.sh"
+"$dotfiles/apps.sh"
 "$dotfiles/osx.sh"
 "$dotfiles/languages.sh"
 "$dotfiles/atom.sh"

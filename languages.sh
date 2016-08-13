@@ -8,6 +8,9 @@ brew install rbenv-binstubs
 brew install ruby-build
 brew install readline
 brew install openssl
+rbenv install 2.3.1
+rbenv global 2.3.1
+rbenv rehash
 
 # haskell
 curl -sSL https://get.haskellstack.org/ | sh

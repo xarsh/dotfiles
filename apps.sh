@@ -35,6 +35,7 @@ brew install zsh
 brew install zplug
 
 open -a docker
+open -a line
 open -a karabiner
 open -a firefox
 open -a slack
