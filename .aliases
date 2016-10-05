@@ -42,9 +42,6 @@ alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
-# mkdir + cd at once
-alias mkd="mkdir -p '$@' && cd '$_'"
-
 # Start PostgreSQL server
 alias pg="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
 
@@ -61,3 +58,9 @@ alias ghc="stack ghc --"
 alias ghci="stack ghci"
 alias runghc="stack runghc --"
 alias runhaskell="stack runghc --"
+
+
+# mkdir + cd at once
+function mkd() {
+  mkdir -p "$@" && cd "$_";
+}

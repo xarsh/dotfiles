@@ -9,11 +9,12 @@ brew tap caskroom/cask
 
 brew cask install atom
 brew cask install caskroom/fonts/font-hack
+brew cask install chromium
 brew cask install cyberduck
 brew cask install docker
 brew cask install firefox
 brew cask install flash
-brew cask install chromium
+brew cask install iterm2
 brew cask install java
 brew cask install karabiner
 brew cask install libreoffice

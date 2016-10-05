@@ -6,3 +6,5 @@ chsh -s /bin/zsh
 ~/.n/bin/npm install -g pure-prompt
 
 source ~/.zplug/zplug
+
+zplug install
