@@ -14,7 +14,6 @@ before() {
 
   ln -sf "$dotfiles/.gitconfig" "$HOME/.gitconfig"
   ln -sf "$dotfiles/.gitignore_global" "$HOME/.gitignore_global"
-  ln -sf "$dotfiles/.zshrc" "$HOME/.zshrc"
   ln -sf "$dotfiles/.vimrc" "$HOME/.vimrc"
   ln -sf "$dotfiles/.gvimrc" "$HOME/.gvimrc"
   ln -sf "$dotfiles/.aliases" "$HOME/.aliases"
@@ -27,7 +26,5 @@ before
 "$dotfiles/osx.sh"
 "$dotfiles/languages.sh"
 "$dotfiles/atom.sh"
-"$dotfiles/karabiner.sh"
-"$dotfiles/shell.sh"
 
 echo "\nSuccess.\n"
