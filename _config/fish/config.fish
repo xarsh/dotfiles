@@ -52,6 +52,7 @@ alias rm="rmtrash"
 alias da="docker ps -a"
 alias dl="docker ps --latest --quiet"
 alias drmi="docker rmi (docker images | awk '/^<none>/ { print $3 }')"
+alias ecs="eval (aws ecr get-login --region us-west-2)"
 
 # haskell
 alias ghc="stack ghc --"
@@ -64,3 +65,6 @@ function mkd
   mkdir $argv
   cd $argv
 end
+
+# rbenv
+status --is-interactive; and . (rbenv init -|psub)
