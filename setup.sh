@@ -18,7 +18,7 @@ ln -sf "$dotfiles/_gvimrc" "$HOME/.gvimrc"
 rm -r "$HOME/.config" & ln -sf "$dotfiles/_config" "$HOME/.config"
 
 "$dotfiles/apps.sh"
-"$dotfiles/osx.sh"
+# "$dotfiles/osx.sh"
 "$dotfiles/languages.sh"
 "$dotfiles/atom.sh"
 
