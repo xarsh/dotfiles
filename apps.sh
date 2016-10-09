@@ -8,6 +8,7 @@ brew upgrade
 brew tap caskroom/cask
 
 brew cask install atom
+brew cask install avast
 brew cask install caskroom/fonts/font-hack
 brew cask install chromium
 brew cask install cyberduck
@@ -33,6 +34,7 @@ brew install gcc
 brew install rmtrash
 brew install wget
 
+open -a avast
 open -a docker
 open -a firefox
 open -a slack
