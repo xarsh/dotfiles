@@ -19,6 +19,7 @@ brew cask install firefox
 brew cask install flash
 brew cask install iterm2
 brew cask install java
+brew cask install qlmarkdown
 brew cask install slack
 brew cask install spectacle
 brew cask install the-unarchiver
