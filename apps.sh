@@ -7,12 +7,13 @@ brew upgrade
 
 brew tap caskroom/cask
 
+brew cask install displaylink
+
 brew cask install atom
 brew cask install avast
 brew cask install caskroom/fonts/font-hack
 brew cask install chromium
 brew cask install cyberduck
-brew cask install displaylink
 brew cask install docker
 brew cask install firefox
 brew cask install flash
