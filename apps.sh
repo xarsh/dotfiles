@@ -9,7 +9,7 @@ brew tap caskroom/cask
 
 brew cask install displaylink
 
-brew cask install atom
+brew cask install visual-studio-code
 brew cask install avast
 brew cask install caskroom/fonts/font-hack
 brew cask install chromium
@@ -31,10 +31,11 @@ brew install aws-elasticbeanstalk
 brew install bfg
 brew install coreutils
 brew install direnv
-brew install fish
 brew install gcc
 brew install rmtrash
 brew install wget
+brew install zsh
+brew install zsh-completions
 
 open -a avast
 open -a docker

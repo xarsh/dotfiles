@@ -1,11 +1,21 @@
-# node.js
-curl -L https://git.io/n-install | N_PREFIX=~/.n bash -s -- -y lts 4.4
-$HOME/.n/bin/npm install -g npm-check-updates
+# anyenv
+git clone https://github.com/riywo/anyenv ~/.anyenv
+echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(anyenv init -)"' >> ~/.zshrc
+exec $SHELL -l
 
-# ruby
-brew install rbenv rbenv-binstubs ruby-build readline openssl
-rbenv install 2.3.1
-rbenv global 2.3.1
+# node.js
+anyenv install ndenv
+VERSION=$(ndenv install -l | grep -v - | tail -1)
+ndenv install $VERSION
+ndenv global $VERSION
+ndenv rehash
+
+# ruby, latest version
+anyenv install rbenv
+VERSION=$(rbenv install -l | grep -v '-' | tail -1)
+rbenv install $VERSION
+rbenv global $VERSION
 rbenv rehash
 
 # haskell

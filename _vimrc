@@ -57,11 +57,6 @@ set cursorline
 " Status bar
 set laststatus=2
 
-" Automatically append closing characters
-imap { {}<LEFT>
-imap [ []<LEFT>
-imap ( ()<LEFT>
-
 
 "******************
 " Editor config
@@ -73,9 +68,6 @@ nnoremap <C-p> gT
 " Swap colon and semi-colon
 noremap ; :
 noremap : ;
-
-" Toggle filetree
-nnoremap <silent><C-e> :NERDTreeToggle<CR>
 
 " Move cursor by display lines
 nnoremap j gj

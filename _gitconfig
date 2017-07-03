@@ -2,6 +2,7 @@
 	autocorrect = 1
 [core]
 	quotepath = false
+  fileMode = false
 	excludesfile = ~/.gitignore_global
         whitespace = cr-at-eol
 	editor = vim
@@ -9,10 +10,12 @@
 	default = simple
 [user]
 	email = xarsh@outlook.com
-	name = Takao NAITO
+	name = Takao Naito
 [color]
 	diff = auto
 	status = auto
 	branch = auto
 [url "git@github.com:"]
 	pushinsteadof = https://github.com/
+
+unstage = reset HEAD
