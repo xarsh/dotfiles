@@ -9,7 +9,6 @@ brew tap caskroom/cask
 
 brew cask install displaylink
 
-brew cask install visual-studio-code
 brew cask install avast
 brew cask install caskroom/fonts/font-hack
 brew cask install chromium
@@ -24,6 +23,7 @@ brew cask install slack
 brew cask install spectacle
 brew cask install the-unarchiver
 brew cask install transmission
+brew cask install visual-studio-code
 brew cask install vlc
 
 brew install awscli

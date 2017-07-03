@@ -14,15 +14,11 @@ fi
 ln -sf "$dotfiles/_gitconfig" "$HOME/.gitconfig"
 ln -sf "$dotfiles/_gitignore_global" "$HOME/.gitignore_global"
 ln -sf "$dotfiles/_vimrc" "$HOME/.vimrc"
-ln -sf "$dotfiles/_gvimrc" "$HOME/.gvimrc"
-rm -r "$HOME/.config" & ln -sf "$dotfiles/_config" "$HOME/.config"
+ln -sf "$dotfiles/_zshrc" "$HOME/.zshrc"
 
 "$dotfiles/apps.sh"
-# "$dotfiles/osx.sh"
+"$dotfiles/osx.sh"
 "$dotfiles/languages.sh"
 "$dotfiles/atom.sh"
-
-sudo sh -c "echo '/usr/local/bin/fish' >> /etc/shells"
-sudo chsh -s /usr/local/bin/fish
 
 echo "\nSuccess.\n"
