@@ -9,7 +9,7 @@ eval "$(direnv hook zsh)"
 # Shortcuts
 alias ls="ls -GF"
 
-alias a="atom"
+alias a="code"
 alias h="history"
 alias o="open"
 alias l="ls -la"
@@ -31,7 +31,7 @@ alias gst='git status'
 # Ruby and Rails shortcuts
 alias bi="bundle install --path vendor/bundle"
 alias ras="bundle exec rails s"
-alias ras="bundle exec rails c"
+alias rac="bundle exec rails c"
 
 # Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
@@ -57,3 +57,12 @@ alias runhaskell="stack runghc --"
 function mkd() {
 	mkdir -p "$@" && cd "$_";
 }
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/xarsh/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/xarsh/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/xarsh/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/xarsh/google-cloud-sdk/completion.zsh.inc'; fi
