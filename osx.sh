@@ -126,6 +126,9 @@ defaults write org.m0k.transmission WarningDonate -bool false
 # Hide the legal disclaimer
 defaults write org.m0k.transmission WarningLegal -bool false
 
+# Enable key repeats
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
 
 # Apply all confs
 killall Dock
