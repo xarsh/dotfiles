@@ -1,7 +1,13 @@
 #!/bin/sh
 
-set -e # Stop script when error occurs
-set -u # Stop script when using undefined variable
+# Stop script when error occurs
+set -e
+
+# Stop script when using undefined variable
+set -u
+
+# Install Homebrew
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 dotfiles=$HOME/.dotfiles
 
@@ -13,12 +19,10 @@ fi
 
 ln -sf "$dotfiles/_gitconfig" "$HOME/.gitconfig"
 ln -sf "$dotfiles/_gitignore_global" "$HOME/.gitignore_global"
-ln -sf "$dotfiles/_vimrc" "$HOME/.vimrc"
-ln -sf "$dotfiles/_zshrc" "$HOME/.zshrc"
 
 "$dotfiles/apps.sh"
 "$dotfiles/osx.sh"
 "$dotfiles/languages.sh"
-"$dotfiles/atom.sh"
+"$dotfiles/shell.sh"
 
 echo "\nSuccess.\n"

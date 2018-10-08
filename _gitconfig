@@ -15,11 +15,12 @@
 	diff = auto
 	status = auto
 	branch = auto
+[diff]
+	indentHeuristic = true
+
 [url "git@github.com:"]
 	pushinsteadof = https://github.com/
-[diff]
-  indentHeuristic = true
-
-unstage = reset HEAD
 [url "https://"]
 	insteadOf = git://
+
+unstage = reset HEAD
