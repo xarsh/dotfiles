@@ -3,7 +3,7 @@
 After a fresh macOS install, run:
 
 ```
-curl -sL dot.xar.sh | sh
+bash <(curl -sL dot.xar.sh)
 ```
 
 > **Warning:** This will overwrite existing dotfiles. Do not run blindly.
