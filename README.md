@@ -1,6 +1,6 @@
 # dotfiles
 
-After a fresh macOS install, run:
+After a fresh macOS install, open Terminal.app and run:
 
 ```
 bash <(curl -sL dot.xar.sh)

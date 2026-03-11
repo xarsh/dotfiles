@@ -13,10 +13,10 @@ brew install --cask karabiner-elements
 brew install --cask rectangle
 brew install --cask slack
 brew install --cask spotify
-brew install --cask the-unarchiver
 brew install --cask visual-studio-code
 brew install --cask vlc
 
+brew install duti
 brew install colima
 brew install docker
 brew install docker-compose

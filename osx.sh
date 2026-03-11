@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
 
-# Set NTP server to NICT
-sudo systemsetup -setnetworktimeserver ntp.nict.jp
-
-# Disable the sound effects on boot
-sudo nvram SystemAudioVolume=" "
-
 # Disable warning when emptying Trash
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
@@ -75,6 +69,13 @@ chflags nohidden ~/Library/
 
 # Expand the "Open with" pane in File Info
 defaults write com.apple.finder FXInfoPanesExpanded -dict OpenWith -bool true
+
+
+# Set VLC as default for common video/audio formats
+for ext in avi flv mkv mov mp4 m4v mpg mpeg webm wmv ts \
+           mp3 flac aac ogg wav m4a wma; do
+  duti -s org.videolan.vlc .$ext all
+done
 
 
 # Apply all confs

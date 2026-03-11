@@ -41,4 +41,6 @@ cp "$dotfiles/config/RectangleConfig.json" "$HOME/Desktop/"
 "$dotfiles/languages.sh"
 "$dotfiles/shell.sh"
 
-echo "\nSuccess.\n"
+printf "\nSuccess. Restarting in 5 seconds...\n\n"
+sleep 5
+sudo reboot
