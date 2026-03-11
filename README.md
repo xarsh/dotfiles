@@ -1,10 +1,17 @@
-dotfiles
-=====
-After install Mac OSX, run
+# dotfiles
+
+After a fresh macOS install, run:
+
 ```
-$ curl -sL dot.xar.sh | sh
+curl -sL dot.xar.sh | sh
 ```
 
-*Warning:* 
-This command overrides dotfiles that were already there.
-So you should not run these files verbatim.
+> **Warning:** This will overwrite existing dotfiles. Do not run blindly.
+
+## Cloudflare redirect setup
+
+Set up a Cloudflare redirect rule for `dot.xar.sh` to point to:
+
+```
+https://raw.githubusercontent.com/xarsh/dotfiles/main/setup.sh
+```

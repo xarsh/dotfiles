@@ -1,0 +1,65 @@
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+typeset -U path PATH
+path=(
+  /opt/homebrew/bin(N-/)
+  /opt/homebrew/sbin(N-/)
+  /usr/local/bin(N-/)
+  /usr/local/sbin(N-/)
+  /usr/bin
+  /usr/sbin
+  /bin
+  /sbin
+)
+
+# Completions
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+autoload -Uz compinit && compinit
+zstyle ":completion:*:commands" rehash 1
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+
+# Pure prompt
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
+autoload -U promptinit; promptinit
+prompt pure
+
+# Options
+setopt autocd
+setopt nonomatch
+
+# Shortcuts
+alias ls="ls -GF"
+alias l="ls -la"
+alias a="code"
+alias o="open"
+alias rm="trash"
+alias mkd='(){mkdir $1;cd $1}'
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+
+# Git
+alias ga='git add'
+alias gaa='git add --all'
+alias gc='git commit -v'
+alias gcl='git clone --recursive'
+alias gcm='git checkout main'
+alias gco='git branch --merged | egrep -v "(^\*|master|main|dev)" | xargs git branch -d && git checkout'
+alias gd='git diff'
+alias gds='git diff --cached'
+alias gf='git pull --rebase origin main'
+alias glg='git log --stat'
+alias gp='git push'
+alias gst='git status'
+
+# Tools
+eval "$(mise activate zsh)"
+
+# pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac

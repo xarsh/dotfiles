@@ -1,20 +1,14 @@
-# Editor generated
-*~
-*.sublime-project
-*.sublime-workspace
+# Editor
 *.swp
+.idea
+.vscode
 
-# Binaries
-*.so
-*.class
-*.o
+# macOS
+.DS_Store
 
 # Misc
 *.log
-.idea
-
-# Mac OS
-.DS_Store
 
 # Credentials
 .envrc
+.env

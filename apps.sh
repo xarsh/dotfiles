@@ -3,33 +3,26 @@ brew doctor
 brew update
 brew upgrade
 
-brew tap caskroom/cask
-
-brew cask install avast-security
-brew cask install caskroom/fonts/font-hack
-brew cask install google-chrome-canary
-brew cask install cyberduck
-brew cask install docker
-brew cask install firefox
-brew cask install flash-player
-brew cask install java
-brew cask install slack
-brew cask install spectacle
-brew cask install spotify
-brew cask install the-unarchiver
-brew cask install transmission
-brew cask install visual-studio-code
-brew cask install vlc
+brew install --cask affinity-photo
+brew install --cask alacritty
+brew install --cask cloudflare-warp
+brew install --cask discord
+brew install --cask docker
+brew install --cask firefox
+brew install --cask font-hack-nerd-font
+brew install --cask google-chrome
+brew install --cask google-cloud-sdk
+brew install --cask karabiner-elements
+brew install --cask slack
+brew install --cask spotify
+brew install --cask the-unarchiver
+brew install --cask visual-studio-code
+brew install --cask vlc
 
 brew install awscli
-brew install aws-elasticbeanstalk
-brew install coreutils
-brew install direnv
-brew install fish
-brew install gcc
+brew install azure-cli
 brew install jq
-brew install rmtrash
-brew install tmux
-brew install wget
-
-open -a spectacle
+brew install pure
+brew install trash
+brew install zsh-autosuggestions
+brew install zsh-completions

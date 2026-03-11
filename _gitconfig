@@ -1,26 +1,26 @@
 [help]
-	autocorrect = 1
+	autocorrect = prompt
 [core]
 	quotepath = false
 	fileMode = false
 	excludesfile = ~/.gitignore_global
-        whitespace = cr-at-eol
-	editor = vim
-[push]
-	default = simple
+	editor = code --wait
 [user]
 	email = xarsh@outlook.com
 	name = Takao Naito
-[color]
-	diff = auto
-	status = auto
-	branch = auto
-[diff]
-	indentHeuristic = true
-
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true
+[fetch]
+	prune = true
+[merge]
+	conflictstyle = zdiff3
+[rerere]
+	enabled = true
 [url "git@github.com:"]
 	pushinsteadof = https://github.com/
 [url "https://"]
 	insteadOf = git://
-
-unstage = reset HEAD
+[alias]
+	unstage = reset HEAD
