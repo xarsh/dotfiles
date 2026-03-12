@@ -41,6 +41,17 @@ cp "$dotfiles/config/RectangleConfig.json" "$HOME/Desktop/"
 "$dotfiles/languages.sh"
 "$dotfiles/shell.sh"
 
-printf "\nSuccess. Restarting in 5 seconds...\n\n"
-sleep 5
-sudo reboot
+# Generate SSH key and register with GitHub
+if [ ! -f ~/.ssh/id_ed25519 ]; then
+  ssh-keygen -t ed25519 -C "" -f ~/.ssh/id_ed25519 -N ""
+fi
+key_title="$(scutil --get ComputerName) $(date +%Y-%m-%d)"
+gh auth login -p ssh -w
+gh ssh-key add ~/.ssh/id_ed25519.pub --title "$key_title"
+
+printf "\nSuccess.\n"
+printf "Reboot now? (Y/n): "
+read -r answer
+if [ "$answer" != "n" ] && [ "$answer" != "N" ]; then
+  sudo reboot
+fi

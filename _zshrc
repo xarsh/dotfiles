@@ -1,10 +1,12 @@
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+BREW_PREFIX=/opt/homebrew
+
 typeset -U path PATH
 path=(
-  /opt/homebrew/bin(N-/)
-  /opt/homebrew/sbin(N-/)
+  $BREW_PREFIX/bin(N-/)
+  $BREW_PREFIX/sbin(N-/)
   /usr/local/bin(N-/)
   /usr/local/sbin(N-/)
   /usr/bin
@@ -14,16 +16,14 @@ path=(
 )
 
 # Completions
-if type brew &>/dev/null; then
-  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-fi
+FPATH=$BREW_PREFIX/share/zsh-completions:$FPATH
+source $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 autoload -Uz compinit && compinit
 zstyle ":completion:*:commands" rehash 1
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 
 # Pure prompt
-fpath+=("$(brew --prefix)/share/zsh/site-functions")
+fpath+=("$BREW_PREFIX/share/zsh/site-functions")
 autoload -U promptinit; promptinit
 prompt pure
 
@@ -54,7 +54,9 @@ alias gp='git push'
 alias gst='git status'
 
 # Tools
-eval "$(mise activate zsh)"
+source $BREW_PREFIX/opt/fzf/shell/key-bindings.zsh
+source $BREW_PREFIX/opt/fzf/shell/completion.zsh
+eval "$(mise activate zsh --shims)"
 
 # pnpm
 export PNPM_HOME="$HOME/Library/pnpm"

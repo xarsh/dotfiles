@@ -20,6 +20,8 @@ brew install duti
 brew install colima
 brew install docker
 brew install docker-compose
+brew install fzf
+brew install gh
 brew install awscli
 brew install azure-cli
 brew install jq
