@@ -11,6 +11,7 @@ brew install --cask google-chrome
 brew install --cask google-cloud-sdk
 brew install --cask karabiner-elements
 brew install --cask rectangle
+brew install --cask simplenote
 brew install --cask slack
 brew install --cask spotify
 brew install --cask visual-studio-code
