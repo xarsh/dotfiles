@@ -34,7 +34,7 @@ ln -sf "$dotfiles/config/karabiner.json" "$HOME/.config/karabiner/karabiner.json
 
 # Manual setup items → Desktop
 cp "$dotfiles"/webloc/*.webloc "$HOME/Desktop/"
-cp "$dotfiles/config/RectangleConfig.json" "$HOME/Desktop/"
+cp "$dotfiles/config/rectangle-config.json" "$HOME/Desktop/"
 
 "$dotfiles/apps.sh"
 "$dotfiles/osx.sh"
