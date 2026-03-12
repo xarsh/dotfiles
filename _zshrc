@@ -27,9 +27,22 @@ fpath+=("$BREW_PREFIX/share/zsh/site-functions")
 autoload -U promptinit; promptinit
 prompt pure
 
+# History
+HISTFILE=~/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt share_history
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt hist_reduce_blanks
+setopt hist_save_no_dups
+setopt inc_append_history
+
 # Options
 setopt autocd
 setopt nonomatch
+setopt print_eight_bit
+setopt no_beep
 
 # Shortcuts
 alias ls="ls -GF"

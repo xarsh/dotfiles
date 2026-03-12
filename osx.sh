@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Disable the startup chime
+sudo nvram StartupMute=%01
+
 # Disable warning when emptying Trash
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
@@ -10,8 +13,8 @@ defaults write com.apple.dock static-only -boolean true
 defaults write com.apple.dock autohide -bool true
 defaults write com.apple.Dock autohide-delay -float 0
 
-# Set the icon size of Dock items to 36 pixels
-defaults write com.apple.dock tilesize -int 36
+# Set the icon size of Dock items to 64 pixels
+defaults write com.apple.dock tilesize -int 64
 
 # Wipe all (default) app icons from the Dock
 defaults write com.apple.dock persistent-apps -array
@@ -28,6 +31,14 @@ defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 
 # Disable the "Are you sure you want to open this application?" dialog
 defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+# Disable auto-correct and auto-substitution
+defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+defaults write NSGlobalDomain WebAutomaticSpellingCorrectionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 
 # Keyboard: enable key repeats, set repeat rate and delay to minimum
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
@@ -54,6 +65,9 @@ sudo pmset -c displaysleep 0
 # Finder
 # Show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Show hidden files
+defaults write com.apple.Finder AppleShowAllFiles -bool true
 
 # Show status bar
 defaults write com.apple.finder ShowStatusBar -bool true
