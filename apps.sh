@@ -5,6 +5,7 @@ brew upgrade
 
 brew install --cask cloudflare-warp
 brew install --cask discord
+brew install --cask dropbox
 brew install --cask firefox
 brew install --cask font-hack-nerd-font
 brew install --cask google-chrome
