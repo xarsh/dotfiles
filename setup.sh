@@ -45,7 +45,10 @@ cp "$dotfiles/config/RectangleConfig.json" "$HOME/Desktop/"
 if [ ! -f ~/.ssh/id_ed25519 ]; then
   ssh-keygen -t ed25519 -C "" -f ~/.ssh/id_ed25519 -N ""
 fi
-key_title="$(scutil --get ComputerName) $(date +%Y-%m-%d)"
+hw_info=$(system_profiler SPHardwareDataType)
+model=$(echo "$hw_info" | awk -F': ' '/Model Name/{print $2}')
+chip=$(echo "$hw_info" | awk -F': ' '/Chip/{print $2}' | sed 's/Apple //')
+key_title="$model $chip $(date +%Y-%m-%d)"
 gh auth login -p ssh -w
 gh ssh-key add ~/.ssh/id_ed25519.pub --title "$key_title"
 
