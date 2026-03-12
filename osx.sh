@@ -54,6 +54,11 @@ defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write com.apple.dock wvous-bl-corner -int 5
 defaults write com.apple.dock wvous-bl-modifier -int 0
 
+# Set Spotlight search shortcut to Ctrl+Space
+# Key 64 = "Show Spotlight search"
+# Parameters: [32 (space char), 49 (space key code), 262144 (Ctrl modifier)]
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 64 "<dict><key>enabled</key><true/><key>value</key><dict><key>type</key><string>standard</string><key>parameters</key><array><integer>32</integer><integer>49</integer><integer>262144</integer></array></dict></dict>"
+
 # Never turn off display (battery and power adapter)
 sudo pmset -b displaysleep 0
 sudo pmset -c displaysleep 0
