@@ -38,7 +38,6 @@ cp "$dotfiles/config/rectangle-config.json" "$HOME/Desktop/"
 
 "$dotfiles/apps.sh"
 "$dotfiles/osx.sh"
-"$dotfiles/languages.sh"
 "$dotfiles/shell.sh"
 
 # Generate SSH key and register with GitHub

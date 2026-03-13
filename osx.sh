@@ -56,6 +56,12 @@ defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
+# Disable "Click wallpaper to reveal desktop"
+defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false
+
+# Hide widgets from desktop (Weather & World Clock remain in Notification Center)
+defaults write com.apple.WindowManager StandardHideWidgets -bool true
+
 # Hot corners: bottom-left → Start Screen Saver
 defaults write com.apple.dock wvous-bl-corner -int 5
 defaults write com.apple.dock wvous-bl-modifier -int 0

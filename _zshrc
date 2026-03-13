@@ -70,10 +70,3 @@ alias gst='git status'
 source $BREW_PREFIX/opt/fzf/shell/key-bindings.zsh
 source $BREW_PREFIX/opt/fzf/shell/completion.zsh
 eval "$(mise activate zsh --shims)"
-
-# pnpm
-export PNPM_HOME="$HOME/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac

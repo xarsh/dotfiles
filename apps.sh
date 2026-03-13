@@ -1,33 +1,35 @@
-brew doctor
-
 brew update
 brew upgrade
 
-brew install --cask cloudflare-warp
-brew install --cask discord
-brew install --cask dropbox
-brew install --cask firefox
-brew install --cask font-hack-nerd-font
-brew install --cask google-chrome
-brew install --cask google-cloud-sdk
-brew install --cask karabiner-elements
-brew install --cask rectangle
-brew install --cask simplenote
-brew install --cask slack
-brew install --cask spotify
-brew install --cask visual-studio-code
-brew install --cask vlc
-
-brew install duti
-brew install colima
-brew install docker
-brew install docker-compose
-brew install fzf
-brew install gh
 brew install awscli
 brew install azure-cli
+brew install cloudflare-warp
+brew install colima
+brew install discord
+brew install docker
+brew install docker-compose
+brew install dropbox
+brew install duti
+brew install firefox
+brew install font-hack-nerd-font
+brew install fzf
+brew install gh
+brew install google-chrome
+brew install google-cloud-sdk
 brew install jq
+brew install karabiner-elements
+brew install mise
 brew install pure
+brew install rectangle
+brew install simplenote
+brew install slack
+brew install spotify
 brew install trash
+brew install visual-studio-code
+brew install vlc
 brew install zsh-autosuggestions
 brew install zsh-completions
+
+# Install language runtimes
+mise use --global node@lts
+mise use --global ruby@latest
