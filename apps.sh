@@ -20,7 +20,6 @@ brew install google-chrome
 brew install google-cloud-sdk
 brew install jq
 brew install karabiner-elements
-brew install mise
 brew install pure
 brew install rectangle
 brew install simplenote
@@ -32,6 +31,10 @@ brew install vlc
 brew install zsh-autosuggestions
 brew install zsh-completions
 
+brew tap daipeihust/tap
+brew install im-select
+
 # Install language runtimes
+brew install mise
 mise use --global node@lts
 mise use --global ruby@latest
