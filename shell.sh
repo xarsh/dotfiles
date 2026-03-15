@@ -2,11 +2,8 @@
 
 dotfiles=$HOME/.dotfiles
 
-# Setup Alacritty
-mkdir -p ~/.config/alacritty/themes
-curl -Lo ~/.config/alacritty/themes/iceberg.toml \
-  https://raw.githubusercontent.com/alacritty/alacritty-theme/master/themes/iceberg.toml
-ln -sf "$dotfiles/config/alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
+# Setup Ghostty
+ln -sfn "$dotfiles/config/ghostty" "$HOME/.config/ghostty"
 
 # Fix Homebrew permissions for zsh compinit
 # Remove group write permission to avoid "insecure directories" warning

@@ -14,6 +14,7 @@ brew install firefox
 brew install font-hack-nerd-font
 brew install fzf
 brew install gh
+brew install ghostty
 brew install hugo
 brew install google-chrome
 brew install google-cloud-sdk

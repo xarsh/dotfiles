@@ -1,0 +1,12 @@
+theme = Iceberg Dark
+
+font-family = Hack Nerd Font
+font-size = 13
+
+window-padding-x = 12
+window-padding-y = 8
+
+macos-option-as-alt = true
+
+keybind = ctrl+tab=next_tab
+keybind = ctrl+shift+tab=previous_tab
