@@ -62,6 +62,9 @@ defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool fa
 # Hide widgets from desktop (Weather & World Clock remain in Notification Center)
 defaults write com.apple.WindowManager StandardHideWidgets -bool true
 
+# Enable "Displays have separate Spaces" so the Dock appears on all monitors
+defaults write com.apple.spaces spans-displays -bool false
+
 # Hot corners: bottom-left → Start Screen Saver
 defaults write com.apple.dock wvous-bl-corner -int 5
 defaults write com.apple.dock wvous-bl-modifier -int 0
