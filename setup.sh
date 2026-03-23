@@ -36,6 +36,14 @@ ln -sf "$dotfiles/config/karabiner.json" "$HOME/.config/karabiner/karabiner.json
 cp "$dotfiles"/webloc/*.webloc "$HOME/Desktop/"
 cp "$dotfiles/config/rectangle-config.json" "$HOME/Desktop/"
 
+# Block WOVN domains via /etc/hosts
+wovn_domains="j.wovn.io widget.wovn.io wovn.global.ssl.fastly.net ee.wovn.io"
+for domain in $wovn_domains; do
+  if ! grep -q "$domain" /etc/hosts; then
+    echo "0.0.0.0	$domain" | sudo tee -a /etc/hosts > /dev/null
+  fi
+done
+
 "$dotfiles/apps.sh"
 "$dotfiles/osx.sh"
 "$dotfiles/shell.sh"
