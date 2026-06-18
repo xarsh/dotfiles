@@ -8,7 +8,6 @@ brew install colima
 brew install discord
 brew install docker
 brew install docker-compose
-brew install dropbox
 brew install duti
 brew install firefox
 brew install font-hack-nerd-font
@@ -38,3 +37,10 @@ brew install im-select
 brew install mise
 mise use --global node@lts
 mise use --global ruby@latest
+
+# Optional apps (skip on machines where they are not needed, e.g. work)
+printf "Install Dropbox? (y/N): "
+read -r install_dropbox
+if [ "$install_dropbox" = "y" ] || [ "$install_dropbox" = "Y" ]; then
+  brew install dropbox
+fi

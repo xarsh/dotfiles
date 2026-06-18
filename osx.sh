@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# These tweaks are independent of each other. On a managed (MDM) Mac some
+# commands may be blocked, so log failures and continue instead of aborting.
+set +e
+trap 'echo "[WARN] osx.sh:${LINENO}: command exited $?" >&2' ERR
+
 # Disable the startup chime
 sudo nvram StartupMute=%01
 
@@ -131,3 +136,6 @@ done
 # Apply all confs
 killall Dock
 killall Finder
+
+# Never abort setup.sh because of a failed tweak above
+exit 0

@@ -6,8 +6,10 @@
 	excludesfile = ~/.gitignore_global
 	editor = code --wait
 [user]
-	email = xarsh@outlook.com
 	name = Takao Naito
+# email is set per-machine in ~/.gitconfig.local by setup.sh
+[include]
+	path = ~/.gitconfig.local
 [init]
 	defaultBranch = main
 [pull]
