@@ -7,7 +7,7 @@
 	editor = code --wait
 [user]
 	name = Takao Naito
-	email = 1436437+xarsh@users.noreply.github.com
+	email = xarsh@users.noreply.github.com
 [init]
 	defaultBranch = main
 [pull]
