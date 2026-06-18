@@ -7,9 +7,7 @@
 	editor = code --wait
 [user]
 	name = Takao Naito
-# email is set per-machine in ~/.gitconfig.local by setup.sh
-[include]
-	path = ~/.gitconfig.local
+	email = 1436437+xarsh@users.noreply.github.com
 [init]
 	defaultBranch = main
 [pull]

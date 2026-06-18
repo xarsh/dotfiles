@@ -32,14 +32,6 @@ ln -sf "$dotfiles/_gitignore_global" "$HOME/.gitignore_global"
 mkdir -p "$HOME/.config/karabiner"
 ln -sf "$dotfiles/config/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
 
-# Set the git email for this machine (default or a custom one).
-# Written to ~/.gitconfig.local (not tracked), included from _gitconfig.
-default_email="xarsh@outlook.com"
-printf "Git email [%s]: " "$default_email"
-read -r git_email
-git_email="${git_email:-$default_email}"
-printf "[user]\n\temail = %s\n" "$git_email" > "$HOME/.gitconfig.local"
-
 # Manual setup items → Desktop
 cp "$dotfiles"/webloc/*.webloc "$HOME/Desktop/"
 cp "$dotfiles/config/rectangle-config.json" "$HOME/Desktop/"
