@@ -32,9 +32,11 @@ ln -sf "$dotfiles/_gitignore_global" "$HOME/.gitignore_global"
 mkdir -p "$HOME/.config/karabiner"
 ln -sf "$dotfiles/config/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
 
-# Manual setup items → Desktop
-cp "$dotfiles"/webloc/*.webloc "$HOME/Desktop/"
-cp "$dotfiles/config/rectangle-config.json" "$HOME/Desktop/"
+# Manual setup items → Desktop (only if missing, so removed files stay removed)
+for f in "$dotfiles"/webloc/*.webloc "$dotfiles/config/rectangle-config.json"; do
+  dest="$HOME/Desktop/$(basename "$f")"
+  [ -e "$dest" ] || cp "$f" "$dest"
+done
 
 # Block WOVN domains via /etc/hosts
 wovn_domains="j.wovn.io widget.wovn.io wovn.global.ssl.fastly.net ee.wovn.io"
@@ -48,16 +50,17 @@ done
 "$dotfiles/osx.sh"
 "$dotfiles/shell.sh"
 
-# Generate SSH key and register with GitHub
+# Generate SSH key and register with GitHub (first run only).
+# Skipped entirely once the key exists, so re-running setup is clean.
 if [ ! -f ~/.ssh/id_ed25519 ]; then
   ssh-keygen -t ed25519 -C "" -f ~/.ssh/id_ed25519 -N ""
+  hw_info=$(system_profiler SPHardwareDataType)
+  model=$(echo "$hw_info" | awk -F': ' '/Model Name/{print $2}')
+  chip=$(echo "$hw_info" | awk -F': ' '/Chip/{print $2}' | sed 's/Apple //')
+  key_title="$model $chip $(date +%Y-%m-%d)"
+  gh auth login -p ssh -w
+  gh ssh-key add ~/.ssh/id_ed25519.pub --title "$key_title"
 fi
-hw_info=$(system_profiler SPHardwareDataType)
-model=$(echo "$hw_info" | awk -F': ' '/Model Name/{print $2}')
-chip=$(echo "$hw_info" | awk -F': ' '/Chip/{print $2}' | sed 's/Apple //')
-key_title="$model $chip $(date +%Y-%m-%d)"
-gh auth login -p ssh -w
-gh ssh-key add ~/.ssh/id_ed25519.pub --title "$key_title"
 
 printf "\nSuccess.\n"
 printf "Reboot now? (Y/n): "

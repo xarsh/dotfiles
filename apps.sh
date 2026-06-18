@@ -1,5 +1,6 @@
+# Refresh formula definitions only. `brew upgrade` is intentionally omitted so
+# re-running this just installs missing apps rather than upgrading everything.
 brew update
-brew upgrade
 
 brew install awscli
 brew install azure-cli
