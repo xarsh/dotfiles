@@ -69,8 +69,13 @@ if [ ! -f ~/.ssh/id_ed25519 ]; then
   chip=$(echo "$hw_info" | awk -F': ' '/Chip/{print $2}' | sed 's/Apple //')
   key_title="$model $chip $(date +%Y-%m-%d)"
   gh auth login -p ssh -w
+  gh auth refresh -h github.com -s admin:ssh_signing_key -w
   gh ssh-key add ~/.ssh/id_ed25519.pub --title "$key_title"
+  gh ssh-key add ~/.ssh/id_ed25519.pub --title "$key_title (signing)" --type signing
 fi
+
+# SSH signature verification (git log --show-signature)
+printf "%s %s\n" "$(git config --file "$dotfiles/_gitconfig" user.email)" "$(cat ~/.ssh/id_ed25519.pub)" > ~/.ssh/allowed_signers
 
 printf "\nSuccess.\n"
 printf "Reboot now? (Y/n): "

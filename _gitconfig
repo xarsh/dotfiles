@@ -8,6 +8,7 @@
 [user]
 	name = Takao Naito
 	email = xarsh@users.noreply.github.com
+	signingkey = ~/.ssh/id_ed25519.pub
 [init]
 	defaultBranch = main
 [pull]
@@ -23,6 +24,22 @@
 	conflictstyle = zdiff3
 [rerere]
 	enabled = true
+[branch]
+	sort = -committerdate
+[column]
+	ui = auto
+[commit]
+	verbose = true
+	gpgsign = true
+[diff]
+	algorithm = histogram
+[tag]
+	sort = version:refname
+	gpgsign = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	allowedSignersFile = ~/.ssh/allowed_signers
 [url "git@github.com:"]
 	pushinsteadof = https://github.com/
 [url "https://"]
