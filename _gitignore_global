@@ -12,3 +12,5 @@
 # Credentials
 .envrc
 .env
+
+**/.claude/settings.local.json

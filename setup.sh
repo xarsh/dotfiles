@@ -10,6 +10,14 @@ set -u
 sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+# Run unattended: never pause for confirmation prompts.
+# Homebrew and its installer honour NONINTERACTIVE; combined with the cached
+# sudo credentials above, this stops the repeated
+# "Do you want to proceed with the installation? [y/n]" prompts that casks
+# (cloudflare-warp, karabiner-elements, gcloud-cli, ...) trigger.
+export NONINTERACTIVE=1
+export HOMEBREW_NO_ENV_HINTS=1
+
 # Install Homebrew (skip if already installed)
 if ! command -v brew &>/dev/null; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -18,7 +26,7 @@ fi
 # Add Homebrew to PATH for Apple Silicon
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-dotfiles=$HOME/.dotfiles
+dotfiles=$HOME/Documents/xarsh/dotfiles
 
 if [ -d "$dotfiles" ]; then
   (cd "$dotfiles" && git pull --rebase)
@@ -31,6 +39,8 @@ ln -sf "$dotfiles/_gitconfig" "$HOME/.gitconfig"
 ln -sf "$dotfiles/_gitignore_global" "$HOME/.gitignore_global"
 mkdir -p "$HOME/.config/karabiner"
 ln -sf "$dotfiles/config/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
+mkdir -p "$HOME/.claude"
+ln -sf "$dotfiles/config/claude/settings.json" "$HOME/.claude/settings.json"
 
 # Manual setup items → Desktop (only if missing, so removed files stay removed)
 for f in "$dotfiles"/webloc/*.webloc "$dotfiles/config/rectangle-config.json"; do

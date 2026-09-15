@@ -66,7 +66,16 @@ alias glg='git log --stat'
 alias gp='git push'
 alias gst='git status'
 
+alias dl="yt-dlp --cookies-from-browser firefox"
+
 # Tools
 source $BREW_PREFIX/opt/fzf/shell/key-bindings.zsh
 source $BREW_PREFIX/opt/fzf/shell/completion.zsh
-eval "$(mise activate zsh --shims)"
+eval "$(mise activate zsh)"
+
+export PATH="$HOME/.local/bin:$PATH"
+
+# Backup ATOK user-dic
+mkdir -p ~/Dropbox/Archive/ATOK
+cp ~/Library/Preferences/ATOK34/*.DIC ~/Dropbox/Archive/ATOK/
+cp ~/Library/Application\ Support/JustSystems/ATOK/DAR/ATOKAR.DAR ~/Dropbox/Archive/ATOK/
