@@ -75,7 +75,26 @@ eval "$(mise activate zsh)"
 
 export PATH="$HOME/.local/bin:$PATH"
 
-# Backup ATOK user-dic
-mkdir -p ~/Dropbox/Archive/ATOK
-cp ~/Library/Preferences/ATOK34/*.DIC ~/Dropbox/Archive/ATOK/
-cp ~/Library/Application\ Support/JustSystems/ATOK/DAR/ATOKAR.DAR ~/Dropbox/Archive/ATOK/
+# Backup ATOK user-dic and conversion-learning data (skipped if ATOK or
+# Dropbox isn't set up on this machine). File sizes only grow with use, so
+# if the local file is smaller than what's already backed up, it was
+# reset/reinstalled empty — skip it rather than clobbering a good backup.
+backup_atok() {
+  local atok_dic_dir=~/Library/Preferences/ATOK34
+  local atok_dar=~/Library/Application\ Support/JustSystems/ATOK/DAR/ATOKAR.DAR
+  [ -d "$atok_dic_dir" ] || return
+  [ -d ~/Dropbox ] || return
+
+  local atok_backup_dir=~/Dropbox/Archive/ATOK
+  mkdir -p "$atok_backup_dir"
+  local f dest dest_size
+  for f in "$atok_dic_dir"/*.DIC "$atok_dar"; do
+    [ -f "$f" ] || continue
+    dest="$atok_backup_dir/$(basename "$f")"
+    dest_size=0
+    [ -f "$dest" ] && dest_size=$(stat -f%z "$dest")
+    [ "$(stat -f%z "$f")" -gt "$dest_size" ] && cp "$f" "$dest"
+  done
+}
+backup_atok
+unset -f backup_atok
