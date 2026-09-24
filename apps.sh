@@ -36,6 +36,7 @@ brew install im-select
 brew install mise
 mise use --global node@lts
 mise use --global ruby@latest
+mise use --global rust@stable
 
 # Optional apps (skip on machines where they are not needed, e.g. work)
 printf "Install Dropbox? (y/N): "
