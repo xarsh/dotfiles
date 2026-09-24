@@ -75,17 +75,27 @@ eval "$(mise activate zsh)"
 
 export PATH="$HOME/.local/bin:$PATH"
 
-# Backup ATOK user-dic and conversion-learning data (skipped if ATOK or
-# Dropbox isn't set up on this machine). File sizes only grow with use, so
-# if the local file is smaller than what's already backed up, it was
-# reset/reinstalled empty — skip it rather than clobbering a good backup.
+# Root of the ProtonDrive mount, discovered by pattern so the account email
+# never has to be written down here. Empty (and everything below a no-op) if
+# ProtonDrive isn't installed/mounted on this machine.
+resolve_protondrive_root() {
+  local matches=(~/Library/CloudStorage/ProtonDrive-*(N/))
+  protondrive_root="${matches[1]}"
+}
+resolve_protondrive_root
+unset -f resolve_protondrive_root
+
+# Backup ATOK user-dic and conversion-learning data. File sizes only grow
+# with use, so if the local file is smaller than what's already backed up,
+# it was reset/reinstalled empty — skip it rather than clobbering a good
+# backup.
 backup_atok() {
   local atok_dic_dir=~/Library/Preferences/ATOK34
   local atok_dar=~/Library/Application\ Support/JustSystems/ATOK/DAR/ATOKAR.DAR
   [ -d "$atok_dic_dir" ] || return
-  [ -d ~/Dropbox ] || return
+  [ -d "$protondrive_root" ] || return
 
-  local atok_backup_dir=~/Dropbox/Archive/ATOK
+  local atok_backup_dir="$protondrive_root/Software/ATOK Dicts"
   mkdir -p "$atok_backup_dir"
   local f dest dest_size
   for f in "$atok_dic_dir"/*.DIC "$atok_dar"; do
@@ -98,3 +108,12 @@ backup_atok() {
 }
 backup_atok
 unset -f backup_atok
+
+# Machine-local additions not meant for this public repo, synced via
+# ProtonDrive under Software/dotfiles-local/. No-ops until ProtonDrive has
+# synced that file.
+if [ -n "$protondrive_root" ] && [ -f "$protondrive_root/Software/dotfiles-local/zshrc.local" ]; then
+  source "$protondrive_root/Software/dotfiles-local/zshrc.local"
+fi
+
+unset protondrive_root

@@ -39,8 +39,6 @@ ln -sf "$dotfiles/_gitconfig" "$HOME/.gitconfig"
 ln -sf "$dotfiles/_gitignore_global" "$HOME/.gitignore_global"
 mkdir -p "$HOME/.config/karabiner"
 ln -sf "$dotfiles/config/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
-mkdir -p "$HOME/.claude"
-ln -sf "$dotfiles/config/claude/settings.json" "$HOME/.claude/settings.json"
 
 # Manual setup items → Desktop (only if missing, so removed files stay removed)
 for f in "$dotfiles"/webloc/*.webloc "$dotfiles/config/rectangle-config.json"; do
