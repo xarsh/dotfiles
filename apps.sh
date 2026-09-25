@@ -18,6 +18,8 @@ brew install ghostty
 brew install google-chrome
 brew install jq
 brew install karabiner-elements
+brew install libyaml
+brew install microsoft-teams
 brew install pure
 brew install rectangle
 brew install slack
@@ -26,6 +28,7 @@ brew install trash
 brew install visual-studio-code
 brew install vlc
 brew install yt-dlp
+brew install zoom
 brew install zsh-autosuggestions
 brew install zsh-completions
 
@@ -35,8 +38,10 @@ brew install im-select
 # Install language runtimes
 brew install mise
 mise use --global node@lts
-mise use --global ruby@latest
 mise use --global rust@stable
+mise use --global ruby@latest
+mise use --global ghc@latest
+mise use --global cabal@latest
 
 # Optional apps (skip on machines where they are not needed, e.g. work)
 printf "Install Dropbox? (y/N): "

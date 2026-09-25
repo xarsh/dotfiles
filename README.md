@@ -1,6 +1,13 @@
 # dotfiles
 
-After a fresh macOS install, open Terminal.app and run:
+After a fresh macOS install, first run all pending OS updates and reboot (a
+major update mid-`setup.sh` can force a restart and break the script):
+
+```
+softwareupdate -ia
+```
+
+Then open Terminal.app and run:
 
 ```
 bash <(curl -sL dot.xar.sh)
