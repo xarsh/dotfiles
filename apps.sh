@@ -35,6 +35,9 @@ brew install zsh-completions
 brew tap daipeihust/tap
 brew install im-select
 
+brew tap omlahore/tap
+brew install omlahore/tap/removemacai
+
 # Install language runtimes
 brew install mise
 mise use --global node@lts

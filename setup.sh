@@ -6,6 +6,14 @@ set -e
 # Stop script when using undefined variable
 set -u
 
+# Require macOS 27+ (RemoveMacAI and other tooling below assume it)
+macos_version=$(sw_vers -productVersion)
+if [ "${macos_version%%.*}" -lt 27 ]; then
+  echo "macOS 27 or later is required (current: $macos_version)." >&2
+  echo "Update macOS first (System Settings > General > Software Update), then re-run." >&2
+  exit 1
+fi
+
 # Ask for sudo upfront and keep it alive throughout the script
 sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
