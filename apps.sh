@@ -11,7 +11,7 @@ brew install docker-compose
 brew install duti
 brew install ffmpeg
 brew install firefox
-brew install font-hack-nerd-font
+brew install font-monaspace-nf
 brew install fzf
 brew install gh
 brew install ghostty
@@ -25,9 +25,9 @@ brew install rectangle
 brew install slack
 brew install spotify
 brew install trash
-brew install visual-studio-code
 brew install vlc
 brew install yt-dlp
+brew install zed
 brew install zoom
 brew install zsh-autosuggestions
 brew install zsh-completions

@@ -47,7 +47,7 @@ setopt no_beep
 # Shortcuts
 alias ls="ls -GF"
 alias l="ls -la"
-alias a="code"
+alias a="zed --classic"
 alias o="open"
 alias rm="trash"
 alias mkd='(){mkdir $1;cd $1}'

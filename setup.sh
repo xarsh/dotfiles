@@ -48,6 +48,23 @@ ln -sf "$dotfiles/_gitignore_global" "$HOME/.gitignore_global"
 mkdir -p "$HOME/.config/karabiner"
 ln -sf "$dotfiles/config/karabiner.json" "$HOME/.config/karabiner/karabiner.json"
 
+# Symlink $1 at $2 without clobbering: a correct link is left alone, anything
+# else already at $2 is moved aside to a timestamped .bak first.
+link_safely() {
+  mkdir -p "$(dirname "$2")"
+  [ "$(readlink "$2")" = "$1" ] && return
+  if [ -e "$2" ] || [ -L "$2" ]; then
+    mv "$2" "$2.bak.$(date +%Y%m%d%H%M%S)"
+    echo "WARN: moved existing $2 aside to $2.bak.*" >&2
+  fi
+  ln -s "$1" "$2"
+}
+
+link_safely "$dotfiles/config/ghostty" "$HOME/.config/ghostty"
+# Zed keeps caches and other state next to these, so link only the two files.
+link_safely "$dotfiles/config/zed/settings.json" "$HOME/.config/zed/settings.json"
+link_safely "$dotfiles/config/zed/keymap.json" "$HOME/.config/zed/keymap.json"
+
 # Manual setup items → Desktop (only if missing, so removed files stay removed)
 for f in "$dotfiles"/webloc/*.webloc "$dotfiles/config/rectangle-config.json"; do
   dest="$HOME/Desktop/$(basename "$f")"
