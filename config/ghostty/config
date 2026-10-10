@@ -1,4 +1,6 @@
 theme = Atom One Light
+cursor-color = cell-foreground
+adjust-cursor-thickness = 2
 
 font-family = Monaspace Neon NF
 font-size = 13
